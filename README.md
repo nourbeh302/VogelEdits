@@ -1,5 +1,5 @@
-#vogel's Video Editing Portfolio#
-###https://vogeledits.com###
+# vogel's Video Editing Portfolio #
+### https://vogeledits.com ###
 
 #### To add more videos: embed the iframe into div tag with "video-item" class
 
