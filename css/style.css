@@ -58,6 +58,8 @@ nav {
   color: var(--white-base);
 }
 
+.nav-brand span { font-weight: 300 }
+
 nav ul.nav-links {
   display: flex;
   grid-gap: 2em;
