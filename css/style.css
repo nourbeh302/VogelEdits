@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black-base: hsla(0, 0%, 13%, 100%);
+  --white-base: hsla(0, 0%, 95%, 100%);
+
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:is(:not(h1, h2, h3, h4, h5, h6)) {
+  font-family: var(--font-display);
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* Navigation Bar */
+
+header {
+  position: absolute;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 10%;
+  color: var(--white-base);
+}
+
+nav ul.nav-links {
+  display: flex;
+  grid-gap: 2em;
+}
+
+nav ul.nav-links a li::after {
+  content: "";
+  display: block;
+  background: var(--white-base);
+  width: 0%;
+  height: 1.5px;
+  border-radius: 1px;
+  margin-top: 1px;
+  transition: 375ms all ease-in;
+}
+
+nav ul.nav-links a li:hover::after {
+  width: 100%;
+}
+
+:is(ul.nav-collapse, button.nav-toggler) {
+  display: none;
+}
+
+/* Hero Section */
+
+section {
+  background-position: center;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+section#hero {
+  background-image: url("../assets/imgs/hero.jpg");
+}
+
+.overlay {
+  min-height: 100vh;
+  text-align: center;
+}
+
+section#hero .overlay {
+  display: grid;
+  place-content: center;
+
+  text-align: center;
+}
+
+.hero-content {
+  margin-block: 192px 0px;
+}
+
+section#hero h1 {
+  margin-bottom: 16px;
+}
+
+/* Videos section */
+
+section#videos {
+  background-image: url("../assets/imgs/videos.jpg");
+}
+
+.videos-container {
+  margin-top: 72px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2em;
+}
+
+.videos-container :is(iframe, video) {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 4px 4px 16px hsla(0, 0%, 10%, 40%);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+footer>* {
+  margin: auto;
+}
+
+footer>ul.social-media {
+  margin-block: 24px;
+  display: flex;
+  grid-gap: 1.5em;
+}
+
+footer>ul.social-media svg path:last-child {
+  fill: hsla(0, 0%, 100%, 40%);
+  transition: all 500ms ease-in;
+}
+
+footer>ul.social-media svg:hover path:last-child {
+  fill: var(--white-base);
+}
+
+/* Utilities */
+
+.dark-theme {
+  background: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 0%, 40%),
+    hsla(0, 0%, 0%, 90%)
+  );
+  color: var(--white-base);
+}
+
+footer.dark-theme {
+  background: hsla(0, 0%, 10%, 100%);
+}
+
+.light-theme {
+  background: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 100%, 100%),
+    hsla(0, 0%, 100%, 90%),
+    hsla(0, 0%, 100%, 60%)
+  );
+  color: var(--black-base);
+}
+
+.container {
+  padding: 48px 10%;
+}
+
+section h1.heading {
+  font-size: clamp(36px, 3vw, 64px);
+  line-height: 0.8em;
+}
+
+section p {
+  font-size: clamp(24px, 2.25vw, 28px);
+}
+
+/* Animations */
+
+.fade-in-up {
+  animation: fadeInUp 1500ms linear 1 alternate;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    margin-bottom: 96px;
+  }
+  100% {
+    opacity: 1;
+    margin-bottom: 0px;
+  }
+}
+
+/* Media queries */
+
+@media all and (min-width: 1024px) {
+  footer {
+    flex-direction: row;
+  }
+
+  footer>:is(.footer-brand, small.copyrights) {
+    margin-inline: 0;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (max-width: 767px) {
+  nav ul.nav-links {
+    display: none;
+  }
+
+  :is(ul.nav-collapse, button.nav-toggler) {
+    display: block;
+  }
+
+  ul.nav-collapse {
+    position: absolute;
+    top: 0;
+    background: var(--white-base);
+    width: 100%;
+    height: 0vh;
+    z-index: 2;
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 15vh;
+
+    transition: 400ms all ease-in;
+  }
+
+  ul.nav-collapse[active] {
+    opacity: 1;
+    height: 100vh;
+  }
+
+  ul.nav-collapse li {
+    transition: 250ms all ease-in;
+  }
+
+  ul.nav-collapse li:hover {
+    font-size: 48px;
+  }
+
+  button.nav-toggler {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-content: center;
+    background: var(--black-base);
+    z-index: 3;
+    border-radius: 4px;
+  }
+}
