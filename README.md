@@ -24,6 +24,12 @@
 <div></div>
 ```
 
+#### whenever you embed a new iframe, remove the width and height attributes from the tag
+
+```sh
+<iframe width="" height=""></iframe> => <iframe></iframe>
+```
+
 #### For more inquiry, contact IG: @nourbeh_ 
 #### mesa mesa mn @aalmonzer
 

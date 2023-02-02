@@ -36,22 +36,20 @@ navCollapse.childNodes.forEach((child) => {
   child.addEventListener("click", () => resetOverflow());
 });
 
-// Fade-in-up animation: create the observer
+// Fade-in animation: create the observer
 var observer = new IntersectionObserver((entries) => {
   applyAnimation(entries);
-  setTimeout(() => stopAnimation(entries), 3000);
 });
 
 function applyAnimation(entries) {
   entries.forEach((entry) => {
-    entry.target.classList.toggle("fade-in-up", entry.isIntersecting);
+    entry.target.classList.toggle("fade-in", entry.isIntersecting);
+    if (entry.intersectionRatio > 0) observer.unobserve(entry.target);
   });
 }
 
 function stopAnimation(entries) {
-  entries.forEach((entry) => {
-    observer.unobserve(entry.target);
-  });
+  entries.forEach((entry) => observer.unobserve(entry.target));
 }
 
 // Observe the elements
