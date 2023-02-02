@@ -123,7 +123,7 @@ section#videos {
 }
 
 .videos-container {
-  margin-top: 72px;
+  margin-block: 72px;
 }
 
 .grid-container {
@@ -132,12 +132,20 @@ section#videos {
   grid-gap: 2em;
 }
 
-.videos-container :is(iframe, video) {
+:is(.videos-container, .shorts-container) :is(iframe, video) {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 4px 4px 16px hsla(0, 0%, 10%, 40%);
+}
+
+h1 {
+  margin-bottom: 72px;
+}
+
+.shorts-container {
+  grid-template-columns: repeat(auto-fit, minmax(329px, 1fr));
 }
 
 /* Footer */
