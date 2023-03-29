@@ -90,7 +90,7 @@
           </div>
         </div>
 
-      <h1 class="heading">Content Editing</h1>
+        <h1 class="heading">Content Editing</h1>
         <div class="videos-container grid-container">
           <div class="video-item">
             <iframe src="https://drive.google.com/file/d/1ip4ah1IRG369TQjuHAI3vBHcIXQOYWlf/preview"></iframe>
@@ -111,13 +111,60 @@
             </iframe>
           </div>
 
-        <!-- <div class="video-item">
+          <!-- <div class="video-item">
              <iframe title="vimeo-player" src="https://player.vimeo.com/video/794510104?h=f24b478681" frameborder="0"
                allowfullscreen>
               </iframe>
            </div> -->
 
         </div>
+    </section>
+    <style>
+      #about {
+        background: url("/assets/imgs/about.avif") no-repeat center center;
+        background-size: cover;
+      }
+
+      .about-overlay {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to top, #000000c9, rgba(0, 0, 0, 0.5));
+      }
+
+      .about-content {
+        width: min(500px, 100%);
+        color: var(--white-base);
+      }
+
+      .about-content h2 {
+        font-size: clamp(2rem, 1.85rem + 0.96vw, 3rem);
+        margin-bottom: 16px;
+      }
+
+      .about-content p {
+        font-size: clamp(1rem, 0.96rem + 0.24vw, 1.25rem);
+      }
+
+      @media (width < 768px) {
+        #about {
+          justify-content: center;
+        }
+
+        .about-content h2 {
+          text-align: center;
+        }
+      }
+    </style>
+    <section id="about">
+      <div class="about-overlay container">
+        <div class="about-content">
+          <h2>About me</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa possimus maiores ducimus aperiam iusto sed
+            ipsum error! Error iure molestias minima adipisci, aperiam, nesciunt nulla rerum impedit non laborum
+            dignissimos.</p>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="container dark-theme">
